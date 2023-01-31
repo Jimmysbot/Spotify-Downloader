@@ -45,8 +45,8 @@ async def download_songs(query, download_directory='.'):
 async def song(_, message):
       try:
           await message.reply_chat_action(enums.ChatAction.TYPING)
-          k = await message.reply("⌛")
-          print ('⌛')
+          k = await message.reply("✨ Fecthing..")
+          print ('✨ Fecthing..')
           try:
               randomdir = f"/tmp/{str(randint(1,100000000))}"
               os.mkdir(randomdir)
@@ -54,12 +54,12 @@ async def song(_, message):
               await message.reply_text(f"Failed to send song retry after sometime 😥 reason: {e} ")
               return await k.delete()
           query = message.text.split(None, 1)[1]
-          await k.edit("downloading")
-          print('downloading')
+          await k.edit("⏫downloading")
+          print('⏫downloading')
           await message.reply_chat_action(enums.ChatAction.RECORD_AUDIO)
           path = await download_songs(query,randomdir)
           await message.reply_chat_action(enums.ChatAction.UPLOAD_AUDIO)
-          await k.edit('uploading')
+          await k.edit('⏬uploading')
           await message.reply_audio(path)
       
       except IndexError:
@@ -70,7 +70,7 @@ async def song(_, message):
       finally:
           try:
               shutil.rmtree(randomdir)
-              await message.reply_text(f"Check out @Spotify_downloa(music)  @Spotifynewss(Updates Group)")
+              await message.reply_text(f"UPLOADED SoNg In High Quality 🎵")
               return await k.delete() 
           except:
               pass
