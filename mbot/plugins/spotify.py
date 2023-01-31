@@ -42,7 +42,7 @@ client = spotipy.Spotify(auth_manager=spotipy.oauth2.SpotifyClientCredentials())
 async def spotify_dl(_,message):
     link = message.matches[0].group(0)
     #seep = await sleep (0.9)
-    m = await message.reply_text(f"⏳")
+    m = await message.reply_text(f"✨ Fecthing..")
     n = await message.reply_chat_action(enums.ChatAction.TYPING)
 
     try:
